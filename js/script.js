@@ -25,6 +25,7 @@ const text = [
 
   
 const Container = document.querySelector('.img-box'); 
+let currentIndex = 3;
 
 for (let i = 0; i < items.length; i++) {
 
@@ -32,7 +33,7 @@ for (let i = 0; i < items.length; i++) {
 
     let classUsare ='';
 
-    if( i === 0){
+    if( i === 3){
         classUsare= 'active';
     }
     const tagimg = `<img  class="${classUsare}" src="${imgContainer}" alt="immagine${i}">`;
@@ -40,3 +41,35 @@ for (let i = 0; i < items.length; i++) {
     Container.innerHTML += tagimg;  
 
 }
+//attivazioni pulsanti su giu
+
+const btnUp = document.querySelector('.btn-up');
+const btnDown = document.querySelector('.btn-down');
+
+btnUp.addEventListener("click", function () {
+
+    const activeImage = document.querySelector(".active");
+    activeImage.classList.remove("active");
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = items.length - 1;
+      };
+    const imgTags = Container.querySelectorAll("img");
+    const newActiveImage = imgTags[currentIndex];
+    newActiveImage.classList.add("active");
+    
+});
+
+btnDown.addEventListener("click", function () {
+
+    const activeImage = document.querySelector(".active");
+    activeImage.classList.remove("active");
+    currentIndex++;
+    if (currentIndex > items.length - 1) {
+        currentIndex = 0;
+      }
+    const imgTags = Container.querySelectorAll("img");
+    const newActiveImage = imgTags[currentIndex];
+    newActiveImage.classList.add("active");
+    
+});
