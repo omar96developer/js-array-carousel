@@ -19,11 +19,19 @@ img {
     position: relative;
 }
 .img-box {
-    border: 1px solid black;
     width: 80%;
     height: 100%;
     position: relative;
 }
+.img-box img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.img-box > img.active {
+    opacity: 1;
+  }
 .text-img {
     color: white;
     text-align: right;
@@ -35,7 +43,7 @@ img {
 
 
 .imgs-box {
-    border: 1px solid black;
+   
     width: 20%;
     height: 100%;
     display: flex;
@@ -45,6 +53,7 @@ img {
 
 .imgs-box div{
     height: calc(100% / 5);
+    opacity: 0.5;
 }
 
   
