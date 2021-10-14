@@ -24,23 +24,47 @@ const text = [
 
 
   
-const Container = document.querySelector('.img-box'); 
-let currentIndex = 3;
+const Container = document.querySelector('.img-box');
+const Container2 = document.querySelector('.text-img');
 
-for (let i = 0; i < items.length; i++) {
+
+
+
+let currentIndex = 0;
+
+/* for (let i = 0; i < items.length; i++) {
 
     const imgContainer = items[i]; 
+    const textimg = title[i]
 
     let classUsare ='';
 
-    if( i === 3){
+    if( i === 0){
         classUsare= 'active';
     }
+    
     const tagimg = `<img  class="${classUsare}" src="${imgContainer}" alt="immagine${i}">`;
+    const testo = `<div class="text-img"><p>${textimg}</p></div>`
+    Container.innerHTML += tagimg + testo;
+} */
+for (let i = 0; i < items.length; i++) {
 
-    Container.innerHTML += tagimg;  
+    const imgContainer = items[i]; 
+    
 
+    let classUsare ='';
+
+    if( i === 0){
+        classUsare= 'active';
+    }
+    
+    const tagimg = `<img  class="${classUsare}" src="${imgContainer}" alt="immagine${i}">`;
+    
+    Container.innerHTML += tagimg;
+
+    
 }
+
 //attivazioni pulsanti su giu
 
 const btnUp = document.querySelector('.btn-up');

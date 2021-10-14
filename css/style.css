@@ -38,6 +38,10 @@ img {
     position: absolute;
     bottom: 20px;
     right: 20px;
+    z-index: 0;
+}
+.text-img > p.qua {
+    z-index: 1;
 }
 
 
