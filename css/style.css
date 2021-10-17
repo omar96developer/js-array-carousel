@@ -24,18 +24,18 @@ img {
     width: 800px;
     position: relative;
 }
-.contenitore-immagine {
+.contenitoreimmagine {
     position: absolute;
     top: 0;
     right: 0;
     display: none;
 }
-.contenitore-immagine img {
+.contenitoreimmagine img {
     width: 800px;
     height: 500px;
     object-fit: cover;
 }
-.contenitore-immagine.active {
+.contenitoreimmagine.active {
     display: block;
 }
 .testo {

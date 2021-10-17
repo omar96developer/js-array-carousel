@@ -27,7 +27,7 @@ const text = [
 const sezioneSx = document.querySelector(".sezione-sx");
 console.log(sezioneSx)
 
-
+const currentIndex = 0;
 
 for(i = 0; i < 5; i++) {
     const img = items[i]
@@ -35,10 +35,10 @@ for(i = 0; i < 5; i++) {
     const txt = text[i]
     let classUsare ='';
 
-    if( i === 0){
+    if( i === currentIndex){
         classUsare= 'active';
     }
-    const div = `<div class="contenitore-immagine ${classUsare}"><img src="${img}" alt="0"><div class="testo"><h3 class="titolo-immagine">${tit}</h3><p class="descrizione-immagine">${txt}</p></div></div>`
+    const div = `<div class="contenitoreimmagine ${classUsare}"><img src="${img}" alt="0"><div class="testo"><h3 class="titolo-immagine">${tit}</h3><p class="descrizione-immagine">${txt}</p></div></div>`
     sezioneSx.innerHTML += div
 }
 
@@ -52,7 +52,17 @@ const btnDown = document.querySelector('.btn-down');
 btnDown.addEventListener("click", function () {
     const active = document.querySelector('.active')
     active.classList.remove('active')
-    active.nextElementSibling.classList.add('active')
+    active.nextElementSibling.classList.add('active');
+    
+    
 
 }); 
- 
+
+btnUp.addEventListener("click", function () {
+    const active = document.querySelector('.active')
+    active.classList.remove('active')
+    active.previousSibling.classList.add('active')
+    
+
+}); 
+
