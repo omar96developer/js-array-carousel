@@ -1,5 +1,3 @@
-
-
 const items = [
     'img/01.jpg',
     'img/02.jpg',
@@ -24,45 +22,116 @@ const text = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
-const sezioneSx = document.querySelector(".sezione-sx");
-console.log(sezioneSx)
+// SELEZIONO ELEMENTI HTML
 
-const currentIndex = 0;
+const containerImg = document.querySelector(".container-image");
+const aside = document.querySelector(".aside");
 
-for(i = 0; i < 5; i++) {
-    const img = items[i]
-    const tit = title[i]
-    const txt = text[i]
-    let classUsare ='';
+let currentIndex = 0;
 
-    if( i === currentIndex){
-        classUsare= 'active';
+//LAVORO SU ELEMNETI SELEZIONATI A CUI ASSGNERO HTML NUOVO CON RELATIVE IMMAGINI E TESTI
+
+for (let i = 0; i < items.length; i++) {
+
+    const prevImg = items[i];
+    const imgAtt = items[i];
+    const titleimg = title[i];
+    const testo = text[i];
+
+    let prev = " ";
+    let imgatt = " ";
+    let contimg = " ";
+
+    if (i === currentIndex){ 
+        prev = "active" 
     }
-    const div = `<div class="contenitoreimmagine ${classUsare}"><img src="${img}" alt="0"><div class="testo"><h3 class="titolo-immagine">${tit}</h3><p class="descrizione-immagine">${txt}</p></div></div>`
-    sezioneSx.innerHTML += div
+    if (i === currentIndex) { 
+        imgatt = "active" 
+    }
+    if (i === currentIndex) { 
+        contimg = "active" 
+    }
+
+    const previou = ` <div class="prevv ${prev}"><img src="${prevImg}" alt="img ${i}"></div>`;
+    const immagine = ` <img class="${imgatt}" src="${imgAtt}" alt="img ${i}">`;
+    const contesto = ` <div class="descrizione ${contimg}">
+                            <div class="title">
+                                   ${titleimg}
+                             </div>
+    
+                            <div class="text">
+                                   ${testo}
+                            </div>
+                        </div>
+                       `
+    aside.innerHTML += previou;
+    containerImg.innerHTML += immagine;
+    containerImg.innerHTML += contesto;
 }
 
-//attivazioni pulsanti su giu
+//FRECCIE SU E GIU
 
-const btnUp = document.querySelector('.btn-up');
-const btnDown = document.querySelector('.btn-down');
+const frecciaSu = document.querySelector(".arrow-up");
+const frecciaGiu = document.querySelector(".arrow-down");
 
+frecciaSu.addEventListener("click", function () {
 
+    const prevatt = aside.querySelector(".active");
+    const previmg = containerImg.querySelector(".active")
+    const prevtesto = containerImg.querySelector(".container-image>.descrizione.active");
 
-btnDown.addEventListener("click", function () {
-    const active = document.querySelector('.active')
-    active.classList.remove('active')
-    active.nextElementSibling.classList.add('active');
+    prevatt.classList.remove("active");
+    previmg.classList.remove("active");
+    prevtesto.classList.remove("active");
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+        currentIndex = items.length - 1;
+    }
+
+    const antimg = aside.querySelectorAll(".prevv");
+    const imgImmagine = containerImg.querySelectorAll("img");
+    const antBox = containerImg.querySelectorAll(".descrizione")
+
+    const newAnteprima = antimg[currentIndex];
+    const newImmagine = imgImmagine[currentIndex];
+    const newBox = antBox[currentIndex];
+
+    newAnteprima.classList.add("active");
+    newImmagine.classList.add("active");
+    newBox.classList.add("active");
+});
+
+frecciaGiu.addEventListener("click", function () {
+
+    const prevatt = aside.querySelector(".active");
+    const previmg = containerImg.querySelector(".container-image> img.active");
+    const prevtesto = containerImg.querySelector(".container-image>.descrizione.active");
+
+    prevatt.classList.remove("active");
+    previmg.classList.remove("active");
+    prevtesto.classList.remove("active");
+
+    currentIndex++;
+
+    if (currentIndex > items.length - 1) {
+        currentIndex = 0;
+    }
+
+    const antimg = aside.querySelectorAll(".prevv");
+    const imgImmagine = containerImg.querySelectorAll("img");
+    const antBox = containerImg.querySelectorAll(".descrizione")
     
-    
+    const newAnteprima = antimg[currentIndex];
+    const newImmagine = imgImmagine[currentIndex];
+    const newBox = antBox[currentIndex];
 
-}); 
+    newAnteprima.classList.add("active");
+    newImmagine.classList.add("active");
+    newBox.classList.add("active");
+});
 
-btnUp.addEventListener("click", function () {
-    const active = document.querySelector('.active')
-    active.classList.remove('active')
-    active.previousSibling.classList.add('active')
-    
 
-}); 
+
 

@@ -1,82 +1,96 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    padding: 100px;
-}
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.img-container {
-   
-    width: 1000px;
-    height: 500px;
-    display: flex;
-    position: relative;
-    margin: auto;
-}
-.sezione-sx {
-    height: 500px;
-    width: 800px;
-    position: relative;
-}
-.contenitoreimmagine {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
-}
-.contenitoreimmagine img {
-    width: 800px;
-    height: 500px;
-    object-fit: cover;
-}
-.contenitoreimmagine.active {
-    display: block;
-}
-.testo {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    text-align: right;
-    color: white;
-}
-.imgs-box {
-   
-    width: 20%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.imgs-box div{
-    height: calc(100% / 5);
-    opacity: 0.5;
+/* container sinistra */
+
+.row {
+  display: flex;
+  height: 500px;
+  margin:50px auto;
+  width: 80%;
+  color: white;
+  position: relative; 
+}
+.container-image{
+  height: 100%;
+  width: 80%;
+}
+.container-image img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 0;
+}
+.container-image> img.active{
+  opacity: 1;
+}
+                       
+/* container destra */
+
+.aside{ 
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.prevv{
+  height: calc(100% / 5);
+  opacity: 0.2;
+}
+.arrow { 
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  position: absolute;
+  left:100px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 15px;
+  line-height: 30px;
+  z-index: 99;
+  cursor: pointer;
+}
+.prevv img {
+  width: 100%;
+  height: 100%;
+}
+.active{ 
+  opacity: 1;
+}
+.arrow-up {
+  top:10px;
+}
+.arrow-down{
+  bottom:10px;
+}
+.container-image{
+  position: relative;
 }
 
-  
-  .btn-up, .btn-down {
-    background-color: red;
-    cursor: pointer;
-    height: 30px;
-    width: 30px;
-    position: absolute;
-  }
-  
-  .btn-up {
-     
-    top: 0;
-    right: 0;
-  }
-  .btn-down {
-      bottom: 0;
-      right: 0;
+/* contenitore testo */
 
+.descrizione{
+  min-height: 100px;
+  min-width: 200px;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  text-align: end;
+  opacity: 0;
+  z-index: 99;
   }
-  
-  
+.container-image > .descrizione.active{
+  opacity: 1;}
+.descrizione > .title{ 
+  font-size: 30px;
+  font-weight: bold;
+}
+.descrizione > .text{ 
+  font-size: 20px;                 
+}
