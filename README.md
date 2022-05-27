@@ -3,7 +3,7 @@
 Hello everybody!  
 
 
-In this project i created my first carousel of immages using JavaScript.
+In this project i created my first carousel of images using JavaScript.
   
 
 
